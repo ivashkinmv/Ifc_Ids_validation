@@ -1,0 +1,3301 @@
+<!--
+    IfcTester - IDS based model auditing
+    Copyright (C) 2022 Dion Moult <dion@thinkmoult.com>
+
+    This file is part of IfcTester.
+
+    IfcTester is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    IfcTester is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with IfcTester.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html lang=>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="foobaro">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Inconsolata|Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #97cc64;
+            --light-green: #b6cca1;
+            --red: #fb5a3e;
+            --light-red: #fbb4a8;
+        }
+        body { font-family: 'Arial', sans-serif; padding: 10px 40px; }
+        section { padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px; }
+        section>h2 { margin-top: 0px; }
+        span.time { color: #999; font-style: italic; float: right; }
+        span.step-time { float: right; color: #555; font-size: 0.8em; font-style: italic; }
+        span.item { padding: 5px; border-radius: 5px; margin-right: 5px; border: 1px solid #eee; }
+        span.item.pass, span.item.fail { color: #FFF; font-weight: bold; border: 0px; }
+        p.fail { background-color: #fb5a3e; padding: 5px; border-radius: 5px; color: #fff; }
+        p.unspecified { background-color: #994f00; padding: 5px; border-radius: 5px; color: #fff; }
+        p.skipped { background-color: #8b8d8f; padding: 5px; border-radius: 5px; color: #fff; }
+        p.description { background-color: #eee; border-radius: 5px; padding: 20px; margin-left: auto; margin-right: auto; display: inline-block; font-weight: bold;}
+        li { padding: 10px; font-family: monospace; }
+        li.pass { background-color: var(--light-green); color: #333; }
+        li.fail { background-color: var(--light-red); color: #900; }
+        li.unspecified { background-color: #ffd37f; color: #a30; }
+        li.skipped { background-color: #f5f5f5; color: #333; }
+        li p { margin-bottom: 0px; }
+        footer { color: #999; font-size: 0.8em; }
+        header { text-align: center; }
+        hr { margin: 20px; margin-left: 0px; margin-right: 0px;  border: none; border-top: 1px solid #ccc; }
+        summary { display: flex; cursor: pointer; }
+        summary::-webkit-details-marker { display: none; }
+        * {box-sizing:border-box}
+        .container { width: 100%; background-color: #ddd; border-radius: 5px}
+        .percent { text-align: left; padding-top: 5px; padding-left: 5px; padding-bottom: 5px; color: white; border-radius: 5px; white-space: nowrap; }
+        .pass { background-color: var(--green); }
+        .fail { background-color: var(--red); }
+        table { width: 100%; border-bottom: 2px solid var(--red); border-spacing: 0; border-radius: 5px; margin-top: 10px; }
+        th, td { padding: 5px; }
+        thead>tr { background-color: var(--red); font-weight: bold; color: #fff; }
+        tbody tr { border-bottom: 1px solid var(--red); }
+        tbody tr:nth-child(odd) { background-color: rgba(1, 1, 1, 0.05); }
+        tbody tr:nth-child(even) { background-color: rgba(1, 1, 1, 0.1); }
+        tbody tr:hover { background-color: rgba(0, 0, 0, 0); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Минимальный атрибутивный состав элементов ЦИМ РИИ</h1>
+        <p><strong>2024-03-29 14:52:21</strong></p>
+    </header>
+    <h2>Summary</h2>
+    <div class="container">
+        <div class="fail percent" style="width: 0%;">0%</div>
+    </div>
+    <p>
+        <span class="item fail">Fail</span>
+        <span class="item">
+            Specifications passed: <strong>16</strong> / <strong>52</strong>
+        </span>
+        <span class="item">
+            Requirements passed: <strong>26</strong> / <strong>112</strong>
+        </span>
+        <span class="item">
+            Checks passed: <strong>0</strong> / <strong>96</strong>
+        </span>
+    </p>
+    <hr>
+    <section>
+        <h2>1.1.1 Натурный рельеф</h2>
+        <p><em>Планово-высотная модель существующего рельефа. Формируется на  основе инженерно-топографической съёмки отметок «дневной» поверхности. на основе метода триангуляции высотных отметок с учетом ввода дополнительных точек и характерных линий, учитывающих особенности рельефа и границ изысканий. 
+TIN-поверхность. Разбивается в соответствии с   типом поверхности (газоны, тротуары, дорога и т.д.).</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type TERRAIN</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип покрытия data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип поверхности data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.1.2 Существующие здания, строения, сооружения</h2>
+        <p><em>Существующие здания, строения и сооружения, попадающие в границы геодезической съемки.
+Контуры следует воспроизводить в   соответствии с их очертаниями, отображаемыми на топографическом плане требуемого масштаба.
+Справочно см. пояснения № 45-119 к ГКИНП 02-049-86. 
+Объемные тела в контурах зданий или сооружений.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCEXTERNALSPATIALELEMENT data of type EXTERNAL_FIRE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Код ОКС data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Жилое data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Этажность data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип огнестойкости data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Материал data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Статус data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.1.3 Зеленые насаждения (растительность)</h2>
+        <p><em>Деревья, кустарники, клумбы, штучные травы и иные растения.
+Примечание: газоны следует представлять в составе покрытия.
+Точечный – для отдельно стоящих растений и деревьев или в случае необходимости выполнения «подеревной съемки».
+Площадной – при определяемых на местности контурах участка растительного покрова.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type VEGETATION</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип растительности data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Порода data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Средняя высота data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Средняя толщина data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Среднее расстояние data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.1 Пункт геодезических сетей</h2>
+        <p><em>Справочно см. пояснения № 21-45 к ГКИНП 02-049-86.
+Рекомендуется использовать элементы из библиотеки топографических знаков (см. Приложение В).</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type GEODETIC_POINT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Наименование data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип знака data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.2 Автомобильная, грунтовая дорога, тропа, тротуар</h2>
+        <p><em>Выделяются из поверхности натурного рельефа в качестве самостоятельных элементов ЦИМ. 
+TIN-поверхность.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCCIVILELEMENT data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип покрытия data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип дороги data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.3 Точечный топографический объект</h2>
+        <p><em>Точечные топографические объекты, указываемые на топографических планах.
+См. пояснения ГКИНП 02-049-86.
+Допускается формирование геометрии в условных размерах с условной графической детализацией.
+Рекомендуется использовать элементы из библиотеки топографических знаков.
+(см. Приложение В).</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type POINT_FEATURE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Наименование data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.4 Ограждение</h2>
+        <p><em>Ограждения, заборы указываемые на топографических планах.
+Справочно см. пояснения № 583-588 к ГКИНП 02-049-86.
+Моделируется в габаритных размерах без деления на составляющие части, допускается формирование упрощенной геометрии.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCRAILING data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Назначение data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.5 Точки подключения к инженерным сетям</h2>
+        <p><em>Моделируются точки подключения проектируемого ОКС к источникам снабжения, инженерным сетям, коммуникациям (в случае наличия информации от заказчика и ресурсоснабжающих организаций).
+Рекомендуется моделировать условным элементом ЦИМ с размерами 1х1х1 м.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type CONNECTION_POINT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип точки подключения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Балансодержатель data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.2.6 Фундаменты зданий и сооружений</h2>
+        <p><em>Фундаменты существующих ОКС, попадающие в границы зоны изысканий или планируемую зону строительных работ.
+Моделируются в случае наличия дополнительных требований заказчика.
+Моделируются в габаритных размерах  от отметки подошвы или пяты сваи (по результатам вскрытия или архивным и проектным данных существующих ОКС).
+</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: 0%;">0%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>96</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>48</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCFOOTING data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Материал data shall be provided in the dataset Данные
+                    </summary>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>PredefinedType</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Warning</th>
+                                <th>GlobalId</th>
+                                <th>Tag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В30_400 мм:792783</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>1qFfLJdd54F8F5JLs9k84f</td>
+                                <td>792783</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833889</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0BO</td>
+                                <td>833889</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833937</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN08e</td>
+                                <td>833937</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833990</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN09$</td>
+                                <td>833990</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834097</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN068</td>
+                                <td>834097</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834384</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN03f</td>
+                                <td>834384</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834454</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN00l</td>
+                                <td>834454</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834511</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN01s</td>
+                                <td>834511</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834565</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Uy</td>
+                                <td>834565</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834897</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Re</td>
+                                <td>834897</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835101</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Ma</td>
+                                <td>835101</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835204</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Kz</td>
+                                <td>835204</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835276</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Lr</td>
+                                <td>835276</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В30_400 мм:956278</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>08RB90yaHBk9POqf2LK98k</td>
+                                <td>956278</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975830</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlfK</td>
+                                <td>975830</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975925</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlst</td>
+                                <td>975925</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975958</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAltK</td>
+                                <td>975958</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975996</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlt_</td>
+                                <td>975996</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015085</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaOP</td>
+                                <td>1015085</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015206</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaQI</td>
+                                <td>1015206</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015254</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaRY</td>
+                                <td>1015254</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015314</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaKc</td>
+                                <td>1015314</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015511</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaNZ</td>
+                                <td>1015511</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015566</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaGw</td>
+                                <td>1015566</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015611</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaGF</td>
+                                <td>1015611</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015659</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaHV</td>
+                                <td>1015659</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015861</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhi1</td>
+                                <td>1015861</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017037</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$v</td>
+                                <td>1017037</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017038</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$w</td>
+                                <td>1017038</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017039</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$x</td>
+                                <td>1017039</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017040</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$a</td>
+                                <td>1017040</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017052</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$e</td>
+                                <td>1017052</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017608</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmy</td>
+                                <td>1017608</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017609</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmz</td>
+                                <td>1017609</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017610</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhm_</td>
+                                <td>1017610</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017611</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhm$</td>
+                                <td>1017611</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017623</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmZ</td>
+                                <td>1017623</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017643</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmV</td>
+                                <td>1017643</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017644</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmO</td>
+                                <td>1017644</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017645</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmP</td>
+                                <td>1017645</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017646</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmQ</td>
+                                <td>1017646</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017658</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmE</td>
+                                <td>1017658</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017720</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnC</td>
+                                <td>1017720</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017721</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnD</td>
+                                <td>1017721</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017722</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnE</td>
+                                <td>1017722</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017723</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnF</td>
+                                <td>1017723</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017735</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhop</td>
+                                <td>1017735</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017767</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhoJ</td>
+                                <td>1017767</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип фундамента data shall be provided in the dataset Данные
+                    </summary>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>PredefinedType</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Warning</th>
+                                <th>GlobalId</th>
+                                <th>Tag</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В30_400 мм:792783</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>1qFfLJdd54F8F5JLs9k84f</td>
+                                <td>792783</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833889</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0BO</td>
+                                <td>833889</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833937</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN08e</td>
+                                <td>833937</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:833990</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN09$</td>
+                                <td>833990</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834097</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN068</td>
+                                <td>834097</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834384</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN03f</td>
+                                <td>834384</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834454</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN00l</td>
+                                <td>834454</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834511</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN01s</td>
+                                <td>834511</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834565</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Uy</td>
+                                <td>834565</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:834897</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Re</td>
+                                <td>834897</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835101</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Ma</td>
+                                <td>835101</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835204</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Kz</td>
+                                <td>835204</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:835276</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>3LTmRlJHvAveirQLsjN0Lr</td>
+                                <td>835276</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В30_400 мм:956278</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>08RB90yaHBk9POqf2LK98k</td>
+                                <td>956278</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975830</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlfK</td>
+                                <td>975830</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975925</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlst</td>
+                                <td>975925</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975958</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAltK</td>
+                                <td>975958</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:975996</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>0WdLsG7zHAUv8Q_WTXAlt_</td>
+                                <td>975996</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015085</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaOP</td>
+                                <td>1015085</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015206</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaQI</td>
+                                <td>1015206</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015254</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaRY</td>
+                                <td>1015254</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015314</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaKc</td>
+                                <td>1015314</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015511</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaNZ</td>
+                                <td>1015511</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015566</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaGw</td>
+                                <td>1015566</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015611</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaGF</td>
+                                <td>1015611</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1015659</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOaHV</td>
+                                <td>1015659</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1015861</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhi1</td>
+                                <td>1015861</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017037</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$v</td>
+                                <td>1017037</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017038</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$w</td>
+                                <td>1017038</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017039</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$x</td>
+                                <td>1017039</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017040</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$a</td>
+                                <td>1017040</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017052</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOh$e</td>
+                                <td>1017052</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017608</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmy</td>
+                                <td>1017608</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017609</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmz</td>
+                                <td>1017609</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017610</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhm_</td>
+                                <td>1017610</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017611</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhm$</td>
+                                <td>1017611</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017623</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmZ</td>
+                                <td>1017623</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017643</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmV</td>
+                                <td>1017643</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017644</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmO</td>
+                                <td>1017644</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017645</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmP</td>
+                                <td>1017645</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017646</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmQ</td>
+                                <td>1017646</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017658</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhmE</td>
+                                <td>1017658</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017720</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnC</td>
+                                <td>1017720</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017721</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnD</td>
+                                <td>1017721</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017722</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnE</td>
+                                <td>1017722</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>NOTDEFINED</td>
+                                <td>Базовая стена:К-Ст-Несущая_Бетон В25_200 мм:1017723</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhnF</td>
+                                <td>1017723</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017735</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhop</td>
+                                <td>1017735</td>
+                            </tr>
+                            <tr>
+                                <td>IfcFooting</td>
+                                <td>PREPARATIONPREPARATION</td>
+                                <td>Перекрытие:К-Пе-Несущее_Бетонная подготовка B7,5_80мм:1017767</td>
+                                <td>None</td>
+                                <td>The required property set does not exist</td>
+                                <td>2aFzYvRgnCIPtJNvSaOhoJ</td>
+                                <td>1017767</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3 Существующие коммуникации (основные)</h2>
+        <p>Общие атрибуты для труб, футляров, кабелей, каналов, камер, колодцев (1.3.1-1.3.6).</p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All {&#x27;enumeration&#x27;: [&#x27;IFCPIPESEGMENT&#x27;, &#x27;IFCCOVERING&#x27;, &#x27;IFCCABLESEGMENT&#x27;, &#x27;IFCDISTRIBUTIONCHAMBERELEMENT&#x27;]} data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип системы data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Материал data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Статус data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Источник данных data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.1 Трубы</h2>
+        <p>Общие требования см. 1.3</p>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся в архивных данных, не исправляются.
+Допускается формирование упрощенной геометрии в габаритах сечения. Для нескольких параллельных труб/ футляров/ кабелей допускается моделирование единого элемента прямоугольного сечения в габаритных размерах группы.
+Трубопроводы моделируются полнотелыми элементами по внешним габаритам, включая изоляцию.
+</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCPIPESEGMENT data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Условный диаметр data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Число прокладок data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Балансодержатель data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.3 Кабели</h2>
+        <p>Общие требования см. 1.3</p>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся в архивных данных, не исправляются.
+</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCCABLESEGMENT data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Напряжение сети data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.4 Каналы</h2>
+        <p>Общие требования см. 1.3</p>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся
+в архивных данных, не исправляются.
+Моделируется в габаритных размерах без деления на составляющие части каналов (днище, стенки, крышка), допускается формирование упрощенной геометрии.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCDISTRIBUTIONCHAMBERELEMENT data of type FORMEDDUCT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип канала data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.5 Камеры</h2>
+        <p>Общие требования см. 1.3</p>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся
+в архивных данных, не исправляются.
+Моделируется в габаритных размерах без деления на составляющие части каналов (днище, стенки, крышка), допускается формирование упрощенной геометрии.
+Круглые колодцы рекомендуется моделировать цилиндрами, прямоугольные колодцы в виде параллелепипеда.
+Высота элемента должна быть равна глубине колодца/камеры, определенной натурными измерениями или по отметке присоединенной трубы.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCDISTRIBUTIONCHAMBERELEMENT data of type VALVECHAMBER</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Назначение data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.6 Колодцы</h2>
+        <p>Общие требования см. 1.3.</p>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся
+в архивных данных, не исправляются.
+Моделируется в габаритных размерах без деления на составляющие части каналов (днище, стенки, крышка), допускается формирование упрощенной геометрии.
+Круглые колодцы рекомендуется моделировать цилиндрами, прямоугольные колодцы в виде параллелепипеда.
+Высота элемента должна быть равна глубине колодца/камеры, определенной натурными измерениями или по отметке присоединенной трубы.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCDISTRIBUTIONCHAMBERELEMENT data of type PIT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип колодца data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.3.7 Столбы, опоры ЛЭП</h2>
+        <p><em>Положение элементов принимается в допусках инженерно-геодезической съемки.
+В случае формирования по архивным данным пересечения, нестыковки и иные дефекты построения, имеющиеся
+в архивных данных, не исправляются.
+Моделируется в габаритных размерах без деления на составляющие части. 
+Допускается формирование упрощенной геометрии.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type POST</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Материал data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4 Существующие коммуникации (дополнительные)</h2>
+        <p>Общие атрибуты для фитингов, трубопроводной арматуры, шкафов, отдельных приборов (1.4.1-1.4.4).</p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All {&#x27;enumeration&#x27;: [&#x27;IFCPIPEFITTING&#x27;, &#x27;IFCVALVE&#x27;, &#x27;IFCFLOWCONTROLLER&#x27;, &#x27;IFCFLOWTERMINAL&#x27;]} data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип системы data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Материал data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4.1 Фитинги</h2>
+        <p>Отводы, тройники, крестовины и иные элементы соединения инженерных коммуникаций.</p>
+        <p><em>Допускается формирование геометрии в условных размерах с условной графической детализацией.
+Элементы рекомендуется формировать в положении полного открытия.
+Рекомендуется использовать элементы из библиотеки топографических знаков.
+(см. Приложение В).</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCPIPEFITTING data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Условный диаметр data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4.2 Трубопроводная арматура</h2>
+        <p>Задвижки, клапаны и иная запорно-регулирующая арматура в рамках инженерных систем. </p>
+        <p><em>Допускается формирование геометрии в условных размерах с          условной графической детализацией.
+Элементы рекомендуется формировать в положении полного открытия.
+Рекомендуется использовать элементы из библиотеки топографических знаков.
+(см. Приложение В).
+</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCVALVE data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Условный диаметр data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4.3 Шкафы</h2>
+        <p>Шкафы сетей систем коммунальной инфраструктуры.</p>
+        <p><em>Допускается формирование геометрии в условных размерах с условной графической детализацией.
+Элементы рекомендуется формировать в положении полного открытия.
+Рекомендуется использовать элементы из библиотеки топографических знаков.
+(см. Приложение В).</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCFLOWCONTROLLER data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Назначение data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4.4 Отдельные приборы (пожарные гидранты, осветительные приборы)</h2>
+        <p>Отдельные приборы сетей систем коммунальной инфраструктуры.</p>
+        <p><em>Допускается формирование геометрии в условных размерах с условной графической детализацией.
+Элементы рекомендуется формировать в положении полного открытия.
+Рекомендуется использовать элементы из библиотеки топографических знаков.
+(см. Приложение В).</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCFLOWTERMINAL data</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Назначение data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>1.4.5 Поворотные точки</h2>
+        <p><em>Моделируется в месте поворота трубопроводов.
+Положение элемента ЦИМ в допусках инженерно-геодезической съемки.
+Рекомендуется моделировать условным сферическим элементом ЦИМ диаметром равным большему трубопроводу в месте соединения.
+Допускается не моделировать точки поворота, которые не указываются на топографической съёмке или в каталоге координат.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type TURNING_POINT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Наименование узла data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип системы data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Источник данных data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>2.1.2 Фундамент проектируемого ОКС</h2>
+        <p>Используется для определения посадки здания и определения достаточности геологической изученности.</p>
+        <p><em>Геометрия элемента должна отражать особенности фундамента планируемого ОКС (плитный/свайный/ленточный, глубина заложения и т.д.).</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCSPATIALZONE data of type STRUCTURAL_VOLUME</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип фундамента data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>2.1.3 Геологическая выработка/скважина</h2>
+        <p>Представляет из себя фиктивный элемент ЦИМ (без геометрии), с установленными иерархическими связями (IfcRelationship) с геологическими слоями, выявленными в рамках выработки/скважины.</p>
+        <p><em>В случае невозможности реализации связей между геологическими выработками и выявленными в ней геологическими слоями допускается формировать выработку самостоятельным объемным элементом от отметки устья до отметки забоя.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type BOREHOLE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер скважины data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Дата бурения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Координата X data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Координата Y data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Абсолютная отметка устья data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Вид бурения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Агрегат бурения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Глубина выработки data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Диаметр бурения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Источник данных data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Уровень появления грунтовых вод data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Установившийся уровень грунтовых вод data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Дата замера data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>2.1.4 Геологический слой</h2>
+        <p><em>Формируется по выявленным инженерно-геологическим элементам в составе геологической выработки/скважины.
+Моделируются в виде цилиндров или параллелепипедов условными размерами в плане (200-2000 мм) от отметки подошвы, высотой равной мощности выделенного слоя.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type GEOLOGICAL_LAYER</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер ИГЭ data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Описание ИГЭ data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>2.1.5 Геологический пласт</h2>
+        <p><em>Формируется в виде объемного элемента по правилам построения инженерно-геологических разрезов между геологическими слоями, выявленными в скважинах. Допускается введение фиктивных скважин с геологическими слоями для формирования корректного напластования грунтов.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type GEOLOGICAL_FORMATION</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Возраст ИГЭ data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер ИГЭ data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Описание ИГЭ data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Плотность data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Коэффициент пористости data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Угол внутреннего трения data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Удельное сцепление data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Природная влажность data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Число пластичности data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Показатель текучести data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Показатель консистенции data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>2.2.1 Грунтовые воды; подземные воды</h2>
+        <p><em>Формируется в виде отдельного объемного элемента (по аналогии с геологическими пластами) или TIN-поверхности по устоявшимся уровням воды или выявленным водоносным горизонтам.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type GROUNDWATER</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Наименование data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Дата data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Напорные data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Связь с ПВО data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.1 Замеры физических факторов</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type {&#x27;enumeration&#x27;: [&#x27;NOISE&#x27;, &#x27;INFRASOUND&#x27;, &#x27;MAGNETIC_FIELD&#x27;, &#x27;VIBRATION_LEVEL&#x27;, &#x27;GROUND_ASSESSMENT_POINT&#x27;]}</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.1.1 Замер шума</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type NOISE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Эквивалентный уровень звука data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Максимальный уровнь шума data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.1.2 Замер инфразвука</h2>
+        <p>Моделируются места замеров физических факторов.</p>
+        <p><em>Рекомендуется моделировать условным объемным элементом размерами 1х1х1 м.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type INFRASOUND</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Эквивалентный уровень звукового давления data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.1.3 Замер магнитного поля</h2>
+        <p>Моделируются места замеров физических факторов.</p>
+        <p><em>Рекомендуется моделировать условным объемным элементом размерами 1х1х1 м.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type MAGNETIC_FIELD</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Напряженность магнитного поля data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Напряженность электрического поля data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.1.4 Замер уровня вибраций</h2>
+        <p>Моделируются места замеров физических факторов.</p>
+        <p><em>Рекомендуется моделировать условным объемным элементом размерами 1х1х1 м.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type VIBRATION_LEVEL</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Максимальный уровень вибраций data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.1.2 Точка результата оценки почво-грунта</h2>
+        <p>Формируется в виде геологической выработки с выделением отдельных слоев грунта в пределах глубин отбора образцов.</p>
+        <p><em>Моделируются по аналогии с   геологическими выработками (см. пункт 2.1.3 данной таблицы).</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCBUILDINGELEMENTPROXY data of type GROUND_ASSESSMENT_POINT</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер точки data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Номер пробы data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Дата замера data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Глубина отбора data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Загрязнения неорганические data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Загрязнения органические data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Загрязнения химические data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Загрязнения микробиологические data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Загрязнения токсикологические data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>3.2.1 ЗОУИТ</h2>
+        <p>Моделируются ЗОУИТ, непосредственно затрагивающие участок строительства или попадающие в зону влияния ОКС.</p>
+        <p><em>Площадной объект.
+Моделируются в виде горизонтального элемента в   границах ЗОУИТ и пределах диапазона отметок поверхности существующего рельефа.
+</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCSPATIALZONE data of type SPECIAL_AREA</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Номер data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>4.1.1 Поверхность водных объектов (урез воды)</h2>
+        <p><em>Планово-высотная модель существующего рельефа дна, формируемая на основе метода триангуляции высотных отметок с учетом ввода дополнительных точек и   характерных линий, учитывающих особенности рельефа и границ изысканий.
+TIN-поверхность.</em></p>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type WATER_SURFACE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип водного объекта data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Дата формирования data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>4.2.1 Зоны разлива</h2>
+        <p>Моделируется поверхность уровня высоких вод различной обеспеченности.</p>
+        <p><em>TIN-поверхность.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCSPATIALZONE data of type SPILL_ZONE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Процент обеспеченности data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>4.2.2 Водоохранные зоны</h2>
+        <p>См. описание ЗОУИТ (п. 3.2.1).</p>
+        <p><em>Площадной элемент.
+См. описание ЗОУИТ (п. 3.2.1).
+</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCSPATIALZONE data of type WATER_PROTECTION_ZONE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Тип data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>4.2.3 Поверхность дна</h2>
+        <p><em>Планово-высотная модель существующего рельефа дна, формируемая на основе метода триангуляции высотных отметок с учетом ввода дополнительных точек и характерных линий, учитывающих особенности рельефа и границ изысканий. 
+TIN-поверхность.</em></p>
+
+        <div class="container">
+            <div class="pass percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item pass">Pass</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>All IFCGEOGRAPHICELEMENT data of type BOTTOM_SURFACE</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="pass">
+                <details>
+                    <summary>
+                        Дата формирования data shall be provided in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.1 Правила заполнения атрибута &quot;Статус&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Статус data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Статус data shall be {&#x27;enumeration&#x27;: [&#x27;Существующий&#x27;, &#x27;Демонтируемый&#x27;, &#x27;Реконструируемый&#x27;, &#x27;Проектируемый&#x27;, &#x27;Временный&#x27;, &#x27;Разрушенный&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.3 Правила заполнения атрибута &quot;Источник данных&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Источник данных data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Источник данных data shall be {&#x27;enumeration&#x27;: [&#x27;Архивные материалы&#x27;, &#x27;Новые данные&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.4 Правила заполнения атрибута &quot;Материал&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Материал data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Материал data shall be {&#x27;enumeration&#x27;: [&#x27;Асбестоцемент&#x27;, &#x27;Бетон&#x27;, &#x27;Дерево&#x27;, &#x27;Железобетон&#x27;, &#x27;Керамика&#x27;, &#x27;Кирпич&#x27;, &#x27;Полимерные материалы&#x27;, &#x27;Сталь&#x27;, &#x27;Стеклокомпозит&#x27;, &#x27;Чугун&#x27;, &#x27;а/ц&#x27;, &#x27;бет.&#x27;, &#x27;дер.&#x27;, &#x27;жб.&#x27;, &#x27;кер.&#x27;, &#x27;кирп.&#x27;, &#x27;плм.ст.&#x27;, &#x27;сте.ком.&#x27;, &#x27;чуг.&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.5 Правила заполнения атрибута &quot;Назначение&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Назначение data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Назначение data shall be {&#x27;enumeration&#x27;: [&#x27;Столб общего назначения&#x27;, &#x27;Оттяжка&#x27;, &#x27;Укос&#x27;, &#x27;Столб ЛЭП&#x27;, &#x27;Столб сети связи&#x27;, &#x27;Столб фонарный&#x27;, &#x27;Опора контактной сети&#x27;, &#x27;Опора навеса&#x27;, &#x27;Опора ограды&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.6 Правила заполнения атрибута &quot;Тип знака&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип знака data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип знака data shall be {&#x27;enumeration&#x27;: [&#x27;Пункт полигонометрии&#x27;, &#x27;Репер&#x27;, &#x27;Пункт триангуляции&#x27;, &#x27;Пункт спутниковой геодезической сети&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.7 Правила заполнения атрибута &quot;Тип точки подключения&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип точки подключения data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип точки подключения data shall be {&#x27;enumeration&#x27;: [&#x27;Водоснабжения&#x27;, &#x27;Водоотведения&#x27;, &#x27;Теплоснабжения&#x27;, &#x27;Газоснабжения&#x27;, &#x27;Электроэнергетики&#x27;, &#x27;Сети связи&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.8 Правила заполнения атрибута &quot;Тип растительности&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип растительности data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип растительности data shall be {&#x27;enumeration&#x27;: [&#x27;Дерево&#x27;, &#x27;Куст&#x27;, &#x27;Пень&#x27;, &#x27;Живая изгородь&#x27;, &#x27;Декоративные посадки&#x27;, &#x27;Полосы древесных насаждений&#x27;, &#x27;Участки леса&#x27;, &#x27;Участки зарослей кустарников&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.9 Правила заполнения атрибута &quot;Тип покрытия&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип покрытия data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип покрытия data shall be {&#x27;enumeration&#x27;: [&#x27;Асфальт&#x27;, &#x27;Газон&#x27;, &#x27;Грунт&#x27;, &#x27;Бетон&#x27;, &#x27;Щебень&#x27;, &#x27;Гравий&#x27;, &#x27;Цемент&#x27;, &#x27;Полимер&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.10 Правила заполнения атрибута &quot;Тип системы&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип системы data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип системы data shall be {&#x27;enumeration&#x27;: [&#x27;К0&#x27;, &#x27;К1&#x27;, &#x27;К2&#x27;, &#x27;К3&#x27;, &#x27;ДР&#x27;, &#x27;В0&#x27;, &#x27;В1&#x27;, &#x27;В2&#x27;, &#x27;В3&#x27;, &#x27;Т1&#x27;, &#x27;Т2&#x27;, &#x27;Т3&#x27;, &#x27;Т4&#x27;, &#x27;Т5&#x27;, &#x27;Т6&#x27;, &#x27;Т7&#x27;, &#x27;Т8&#x27;, &#x27;Х1&#x27;, &#x27;Х2&#x27;, &#x27;Х3&#x27;, &#x27;Х4&#x27;, &#x27;Х5&#x27;, &#x27;ВС1&#x27;, &#x27;ВС2&#x27;, &#x27;ВС3&#x27;, &#x27;Г3&#x27;, &#x27;Г2&#x27;, &#x27;Г1&#x27;, &#x27;Канализация общего назначения&#x27;, &#x27;Канализация бытовая&#x27;, &#x27;Канализация дождевая&#x27;, &#x27;Канализация производственная&#x27;, &#x27;Канализация дренажная&#x27;, &#x27;Водопровод общего назначения&#x27;, &#x27;Водопровод хозяйственно-питьевой&#x27;, &#x27;Водопровод противопожарный&#x27;, &#x27;Водопровод производственный&#x27;, &#x27;Отопление подающий&#x27;, &#x27;Отопление обратный&#x27;, &#x27;Горячее водоснабжение подающий&#x27;, &#x27;Горячее водоснабжение циркуляционный&#x27;, &#x27;Для технологических процессов подающий&#x27;, &#x27;Для технологических процессов обратный&#x27;, &#x27;Паропровод&#x27;, &#x27;Конденсаторопровод&#x27;, &#x27;Трубопровод холодоносителя подающий&#x27;, &#x27;Трубопровод холодоносителя обратный&#x27;, &#x27;Трубопровод жидкого хладагента&#x27;, &#x27;Трубопровод газообразного хладагента (горячий газ)&#x27;, &#x27;Трубопровод газообразного хладагента (холодный газ)&#x27;, &#x27;Трубопровод воздухозабора&#x27;, &#x27;Трубопровод сжатого воздуха&#x27;, &#x27;Трубопровод вакуумный&#x27;, &#x27;Теплопровод магистральный&#x27;, &#x27;Теплопровод распределительный (квартальный)&#x27;, &#x27;Газопровод ПНГ&#x27;, &#x27;Газопровод распределительный&#x27;, &#x27;Конденсато-продукто-этанолопровод&#x27;, &#x27;Газопровод высокого давления&#x27;, &#x27;Газопровод среднего давления&#x27;, &#x27;Газопровод низкого давления&#x27;, &#x27;Этиленопровод&#x27;, &#x27;Газопровод соединительный&#x27;, &#x27;Газопровод промысловый&#x27;, &#x27;Специализированная газовая сеть&#x27;, &#x27;Сети до 1 кВ&#x27;, &#x27;Сети от 1 кВ до 35 кВ&#x27;, &#x27;Сети свыше 35 кВ&#x27;, &#x27;Линия связи&#x27;, &#x27;Линейно-кабельное сооружение связи&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.11 Правила заполнения атрибута &quot;Тип колодца&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип колодца data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип колодца data shall be {&#x27;enumeration&#x27;: [&#x27;Смотровой&#x27;, &#x27;Контрольный&#x27;, &#x27;Дождеприемный&#x27;, &#x27;Дренажный&#x27;, &#x27;Перепадный&#x27;, &#x27;Пожарный&#x27;, &#x27;Водоприемный&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.12 Правила заполнения атрибута &quot;Тип канала&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип канала data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип канала data shall be {&#x27;enumeration&#x27;: [&#x27;Проходной&#x27;, &#x27;Полупроходной&#x27;, &#x27;Непроходной&#x27;, &#x27;Не определено&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.13 Правила заполнения атрибута &quot;Тип фундамента&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип фундамента data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип фундамента data shall be {&#x27;enumeration&#x27;: [&#x27;Плитный&#x27;, &#x27;Ленточный&#x27;, &#x27;Свайный&#x27;, &#x27;Столбчатый&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.14 Правила заполнения атрибута &quot;Тип водного объекта&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Тип водного объекта data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Тип водного объекта data shall be {&#x27;enumeration&#x27;: [&#x27;Река&#x27;, &#x27;Море&#x27;, &#x27;Ручей&#x27;, &#x27;Канал&#x27;, &#x27;Озеро&#x27;, &#x27;Пруд&#x27;, &#x27;Карьер&#x27;, &#x27;Водохранилище&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <h2>А.15 Правила заполнения атрибута &quot;Напряжение сети&quot;</h2>
+
+        <div class="container">
+            <div class="fail percent" style="width: N/A%;">N/A%</div>
+        </div>
+        <p>
+            <span class="item fail">Fail</span>
+            <span class="item">
+                Checks passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+            <span class="item">
+                Elements passed: <strong>0</strong> / <strong>0</strong>
+            </span>
+        </p>
+        <p>
+            <strong>Applicability</strong>
+        </p>
+        <ul>
+            <li>Elements with Напряжение сети data in the dataset Данные</li>
+        </ul>
+        <p>
+            <strong>Requirements</strong>
+        </p>
+        <ol>
+            <li class="fail">
+                <details>
+                    <summary>
+                        Напряжение сети data shall be {&#x27;enumeration&#x27;: [&#x27;1150 кВ&#x27;, &#x27;800 кВ&#x27;, &#x27;750 кВ&#x27;, &#x27;600 кВ&#x27;, &#x27;500 кВ&#x27;, &#x27;400 кВ&#x27;, &#x27;330 кВ&#x27;, &#x27;220 кВ&#x27;, &#x27;110 кВ&#x27;, &#x27;60 кВ&#x27;, &#x27;35 кВ&#x27;, &#x27;20 кВ&#x27;, &#x27;10 кВ&#x27;, &#x27;6 кВ&#x27;, &#x27;0.4 кВ&#x27;, &#x27;Не определено&#x27;, &#x27;11В.1&#x27;, &#x27;11В.2&#x27;, &#x27;11В.3&#x27;, &#x27;11В.4&#x27;, &#x27;11В.5&#x27;, &#x27;11В.6&#x27;, &#x27;11В.7&#x27;, &#x27;11В.8&#x27;, &#x27;11В.9&#x27;, &#x27;11В.10&#x27;, &#x27;11В.11&#x27;, &#x27;11В.12&#x27;, &#x27;11В.13&#x27;, &#x27;11В.14&#x27;, &#x27;11В.15&#x27;, &#x27;11В.16&#x27;]} and in the dataset Данные
+                    </summary>
+                </details>
+            </li>
+        </ol>
+    </section>
+    <hr>
+    <footer>
+        <p>
+            Report by the <a href="https://blenderbim.org/">BlenderBIM Add-on</a> and <a href="http://ifcopenshell.org/">IfcOpenShell</a>.
+        </p>
+    </footer>
+</body>
+</html>

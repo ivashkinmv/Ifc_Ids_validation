@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервис валидации IFC на машиночитаемые требования</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gilbarbara/cssloaders.github.io@master/loaders/css/animations.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <h1>Загрузка файлов</h1>
+    <form id="file-upload-form-ifc" method="post" enctype="multipart/form-data">
+        <input id="file-input-ifc" type="file" name="file_ifc" style="display:none;" onchange="updateFileName('file-input-ifc', 'fileName-ifc')">
+        <input id="fileName-ifc" type="text" placeholder="Имя файла ИФС" disabled>
+        <button type="button" onclick="$('#file-input-ifc').click();">Файл IFC</button>
+    </form>
+    <form id="file-upload-form-ids" method="post" enctype="multipart/form-data">
+        <input id="file-input-ids" type="file" name="file_ids" style="display:none;" onchange="updateFileName('file-input-ids', 'fileName-ids')">
+        <input id="fileName-ids" type="text" placeholder="Имя файла ИДС" disabled>
+        <button type="button" onclick="$('#file-input-ids').click();">Файл IDS</button>
+    </form>
+	<h1>Валидация</h1>
+    <button id="validate-button" type="button" onclick="validateFiles()">Отчет валидации</button>
+    <div id="output"></div>
+    <div id="loading-time-container">Загрузка: <span id="loading-time"></span></div>
+    <div id="validation-time-container">Валидация: <span id="validation-time"></span></div>
+    <script>
+        function updateFileName(inputId, nameId) {
+            var fileInput = document.getElementById(inputId);
+            var fileName = document.getElementById(nameId);
+            fileName.value = fileInput.files[0] ? fileInput.files[0].name : '';
+        }
+
+
+        function validateFiles() {
+            var fileInputIFC = document.getElementById('file-input-ifc');
+            var fileInputIDS = document.getElementById('file-input-ids');
+            if (fileInputIFC.files.length === 0 || fileInputIDS.files.length === 0) {
+                alert('Необходимо загрузить оба файла');
+                return;
+            }
+            var formData = new FormData();
+            formData.append('file_ifc', fileInputIFC.files[0]);
+            formData.append('file_ids', fileInputIDS.files[0]);
+            $.ajax({
+                url: '/validate',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $('#loading-time').html(response.loading_time);
+                    $('#validation-time').html(response.validation_time);
+                    setTimeout(function() {
+                        var win = window.open('/valid', '_blank');
+                        win.focus();
+                    }, 3000);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
