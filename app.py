@@ -19,7 +19,7 @@ def validate_files():
     file_ifc = request.files['file_ifc']
     file_ids = request.files['file_ids']
     if file_ifc and file_ids:
-        # Дирректория на сервере сюда сохраняются загруженные файлы с web формы
+        # Директория на сервере сюда сохраняются загруженные файлы с web формы
         app.config['UPLOAD_FOLDER'] = r'upload_files'
         file_ifc.save(os.path.join(app.config['UPLOAD_FOLDER'], file_ifc.filename))
         file_ids.save(os.path.join(app.config['UPLOAD_FOLDER'], file_ids.filename))

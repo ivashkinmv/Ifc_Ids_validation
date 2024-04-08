@@ -127,7 +127,8 @@ class Facet:
                 restrictions[list(x)[1]] = x[list(x)[1]]
             parameter_dict = {"xs:restriction": [restrictions]}
         else:
-            raise Exception(str(parameter) + " was not able to be converted into 'Parameter_dict'")
+            #was not able to be converted into
+            raise Exception(str(parameter) + " не удалось преобразовать в 'Parameter_dict'")
         return parameter_dict
 
     def get_usage(self):
@@ -143,16 +144,16 @@ class Entity(Facet):
     def __init__(self, name="IFCWALL", predefinedType=None, instructions=None):
         self.parameters = ["name", "predefinedType", "@instructions"]
         self.applicability_templates = [
-            "All {name} data of type {predefinedType}",
-            "All {name} data",
+            "Все данные {name} типа {predefinedType}", #All {name} data of type {predefinedType}
+            "Все данные {name}", #All {name} data
         ]
         self.requirement_templates = [
-            "Shall be {name} data of type {predefinedType}",
-            "Shall be {name} data",
+            "Должны быть {name} данные типа {predefinedType}", #Shall be {name} data of type {predefinedType}
+            "Должны быть данные {name}", #Shall be {name} data
         ]
         self.prohibited_templates = [
-            "Shall not be {name} data of type {predefinedType}",
-            "Shall not be {name} data",
+            "Не должно быть {name} данных типа {predefinedType}", #Shall not be {name} data of type {predefinedType}
+            "Не должно быть данных {name}", #Shall not be {name} data
         ]
         super().__init__(name, predefinedType, instructions)
 
@@ -200,16 +201,16 @@ class Attribute(Facet):
     def __init__(self, name="Name", value=None, minOccurs=None, maxOccurs=None, instructions=None):
         self.parameters = ["name", "value", "@minOccurs", "@maxOccurs", "@instructions"]
         self.applicability_templates = [
-            "Data where the {name} is {value}",
-            "Data where the {name} is provided",
+            "Данные, в которых {name} равно {value}", #Data where the {name} is {value}
+            "Данные, в которых указано {name}", #Data where the {name} is provided
         ]
         self.requirement_templates = [
-            "The {name} shall be {value}",
-            "The {name} shall be provided",
+            "{name} должно быть {value}", #The {name} shall be {value}
+            "Должно быть указано {name}", #The {name} shall be provided
         ]
         self.prohibited_templates = [
-            "The {name} shall not be {value}",
-            "The {name} shall not be provided",
+            "{name} не должно быть {value}", #The {name} shall not be {value}
+            "{name} не должно указываться", #The {name} shall not be provided
         ]
         super().__init__(name, value, minOccurs, maxOccurs, instructions)
 
@@ -332,22 +333,22 @@ class Classification(Facet):
     def __init__(self, value=None, system=None, uri=None, minOccurs=None, maxOccurs="unbounded", instructions=None):
         self.parameters = ["value", "system", "@uri", "@minOccurs", "@maxOccurs", "@instructions"]
         self.applicability_templates = [
-            "Data having a {system} reference of {value}",
-            "Data classified using {system}",
-            "Data classified as {value}",
-            "Classified data",
+            "Данные, имеющие {system} ссылку на {value}", #Data having a {system} reference of {value}
+            "Данные, классифицированные с использованием {system}", #Data classified using {system}
+            "Данные, классифицированные как {value}", #Data classified as {value}
+            "Секретные(классифицированые) данные", #Classified data
         ]
         self.requirement_templates = [
-            "Shall have a {system} reference of {value}",
-            "Shall be classified using {system}",
-            "Shall be classified as {value}",
-            "Shall be classified",
+            "Должен иметь {system} ссылку на {value}", #Shall have a {system} reference of {value}
+            "Должны быть классифицированы с использованием {system}", #Shall be classified using {system}
+            "Должно быть классифицировано как {value}", #Shall be classified as {value}
+            "Должны быть засекречены(классифицированы)", #Shall be classified
         ]
         self.prohibited_templates = [
-            "Shall not have a {system} reference of {value}",
-            "Shall not be classified using {system}",
-            "Shall not be classified as {value}",
-            "Shall not be classified",
+            "Не должен иметь {system} ссылки на {value}", #Shall not have a {system} reference of {value}
+            "Не должны классифицироваться с использованием {system}", #Shall not be classified using {system}
+            "Не должны классифицироваться как {value}", #Shall not be classified as {value}
+            "Не подлежит засекречиванию (классификации)", #Shall not be classified
         ]
 
         super().__init__(value, system, uri, minOccurs, maxOccurs, instructions)
@@ -404,16 +405,16 @@ class PartOf(Facet):
     ):
         self.parameters = ["name", "predefinedType", "@relation", "@minOccurs", "@maxOccurs", "@instructions"]
         self.applicability_templates = [
-            "An element with an {relation} relationship with an {name}",
-            "An element with an {relation} relationship",
+            "Элемент с {relation} отношение с {name}", #An element with an {relation} relationship with an {name}
+            "Элемент с отношением {relation}", #An element with an {relation} relationship
         ]
         self.requirement_templates = [
-            "An element must have an {relation} relationship with an {name}",
-            "An element must have an {relation} relationship",
+            "Элемент должен иметь отношение {relation} с {name}", #An element must have an {relation} relationship with an {name}
+            "Элемент должен иметь отношение {relation}", #An element must have an {relation} relationship
         ]
         self.prohibited_templates = [
-            "An element must not have an {relation} relationship with an {name}",
-            "An element must not have an {relation} relationship",
+            "Элемент не должен иметь отношения {relation} с {name}", #An element must not have an {relation} relationship with an {name}
+            "Элемент не должен иметь отношения {relation}", #An element must not have an {relation} relationship
         ]
         super().__init__(name, predefinedType, relation, minOccurs, maxOccurs, instructions)
 
@@ -624,16 +625,16 @@ class Property(Facet):
             "@instructions",
         ]
         self.applicability_templates = [
-            "Elements with {name} data of {value} in the dataset {propertySet}",
-            "Elements with {name} data in the dataset {propertySet}",
+            "Элементы с {name} и данными {значением} в наборе данных {propertySet}", #Elements with {name} data of {value} in the dataset {propertySet}
+            "Элементы с данными {name} в наборе данных {propertySet}", #Elements with {name} data in the dataset {propertySet}
         ]
         self.requirement_templates = [
-            "{name} data shall be {value} and in the dataset {propertySet}",
-            "{name} data shall be provided in the dataset {propertySet}",
+            "данные {name} должны быть {value}, а в наборе данных  {propertySet}", #{name} data shall be {value} and in the dataset {propertySet}
+            "{name} данные должны быть представлены в наборе данных {propertySet}", #{name}data shall be provided in the dataset {propertySet}
         ]
         self.prohibited_templates = [
-            "{name} data shall not be {value} and in the dataset {propertySet}",
-            "{name} data shall not be provided in the dataset {propertySet}",
+            "данные {name} не должны быть {value} и в наборе данных {propertySet}", #{name} data shall not be {value} and in the dataset {propertySet}
+            "данные {name} не должны содержаться в наборе данных {propertySet}", #{name} data shall not be provided in the dataset {propertySet}
         ]
         super().__init__(propertySet, name, value, datatype, uri, minOccurs, maxOccurs, instructions)
 
