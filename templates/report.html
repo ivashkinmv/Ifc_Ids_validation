@@ -73,20 +73,20 @@
         <h1>{{title}}</h1>
         <p><strong>{{#filename}}{{filename}}<br />{{/filename}}{{date}}</strong></p>
     </header>
-    <h2>Summary</h2>
+    <h2>Сводный отчёт</h2>
     <div class="container">
         <div class="{{#status}}pass{{/status}}{{^status}}fail{{/status}} percent" style="width: {{percent_checks_pass}}%;">{{percent_checks_pass}}%</div>
     </div>
     <p>
         <span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Pass{{/status}}{{^status}}Fail{{/status}}</span>
         <span class="item">
-            Specifications passed: <strong>{{total_specifications_pass}}</strong> / <strong>{{total_specifications}}</strong>
+            Технических требований выполнено: <strong>{{total_specifications_pass}}</strong> / <strong>{{total_specifications}}</strong>
         </span>
         <span class="item">
-            Requirements passed: <strong>{{total_requirements_pass}}</strong> / <strong>{{total_requirements}}</strong>
+            Требований выполнено: <strong>{{total_requirements_pass}}</strong> / <strong>{{total_requirements}}</strong>
         </span>
         <span class="item">
-            Checks passed: <strong>{{total_checks_pass}}</strong> / <strong>{{total_checks}}</strong>
+            Проверок выполнено: <strong>{{total_checks_pass}}</strong> / <strong>{{total_checks}}</strong>
         </span>
     </p>
     <hr>
@@ -106,14 +106,14 @@
         <p>
             <span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Pass{{/status}}{{^status}}Fail{{/status}}</span>
             <span class="item">
-                Checks passed: <strong>{{total_checks_pass}}</strong> / <strong>{{total_checks}}</strong>
+                Проверок выполнено: <strong>{{total_checks_pass}}</strong> / <strong>{{total_checks}}</strong>
             </span>
             <span class="item">
-                Elements passed: <strong>{{total_applicable_pass}}</strong> / <strong>{{total_applicable}}</strong>
+                Элементов проверено: <strong>{{total_applicable_pass}}</strong> / <strong>{{total_applicable}}</strong>
             </span>
         </p>
         <p>
-            <strong>Applicability</strong>
+            <strong>Проверялось</strong>
         </p>
         <ul>
             {{#applicability}}
@@ -121,7 +121,7 @@
             {{/applicability}}
         </ul>
         <p>
-            <strong>Requirements</strong>
+            <strong>Требования</strong>
         </p>
         <ol>
             {{#requirements}}

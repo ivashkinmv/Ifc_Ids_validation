@@ -625,12 +625,12 @@ class Property(Facet):
             "@instructions",
         ]
         self.applicability_templates = [
-            "Элементы с {name} и данными {значением} в наборе данных {propertySet}", #Elements with {name} data of {value} in the dataset {propertySet}
+            "Элементы с {name} и данными {value} в наборе данных {propertySet}", #Elements with {name} data of {value} in the dataset {propertySet}
             "Элементы с данными {name} в наборе данных {propertySet}", #Elements with {name} data in the dataset {propertySet}
         ]
         self.requirement_templates = [
-            "данные {name} должны быть {value}, а в наборе данных  {propertySet}", #{name} data shall be {value} and in the dataset {propertySet}
-            "{name} данные должны быть представлены в наборе данных {propertySet}", #{name}data shall be provided in the dataset {propertySet}
+            "Атрибут '{name}' должны быть {value}, и в наборе данных  '{propertySet}'", #{name} data shall be {value} and in the dataset {propertySet}
+            "Атрибут '{name}' должен быть представлен в наборе данных '{propertySet}'", #{name}data shall be provided in the dataset {propertySet}
         ]
         self.prohibited_templates = [
             "данные {name} не должны быть {value} и в наборе данных {propertySet}", #{name} data shall not be {value} and in the dataset {propertySet}
@@ -989,7 +989,7 @@ class Restriction:
             else:
                 self.options[key] = [v["@value"] for v in value]
         return self
-
+#TODO probably here  {'enumeration':
     def asdict(self):
         result = {"@base": "xs:" + self.base}
         for constraint, value in self.options.items():
@@ -1105,9 +1105,9 @@ class PartOfResult(Result):
 class PropertyResult(Result):
     def to_string(self):
         if self.reason["type"] == "NOPSET":
-            return "The required property set does not exist"
+            return "Требуемый набор свойств не существует" #The required property set does not exist
         elif self.reason["type"] == "NOVALUE":
-            return "The property set does not contain the required property"
+            return "Набор свойств не содержит требуемого (атрибута)" #The property set does not contain the required property
         elif self.reason["type"] == "DATATYPE":
             return f"The property's data type \"{str(self.reason['actual'])}\" does not match the required data type of \"{str(self.reason['datatype'])}\""
         elif self.reason["type"] == "VALUE":

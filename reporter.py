@@ -305,7 +305,7 @@ class Html(Json):
     def to_file(self, filepath: str) -> None:
         import pystache
 
-        with open(os.path.join(cwd, "templates", "report.html"), "r") as file:
+        with open(os.path.join(cwd, "templates", "report.html"), "r", encoding="utf-8") as file:
             with open(filepath, "w", encoding="utf-8") as outfile:
                 return outfile.write(pystache.render(file.read(), self.results))
 

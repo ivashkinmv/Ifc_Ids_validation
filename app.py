@@ -45,6 +45,14 @@ def validate_files():
         engine.report()
         engine.to_file("templates/valid.html")
 
+        engine = reporter.Json(specs)
+        engine.report()
+        engine.to_file("templates/valid.json")
+
+        engine = reporter.Txt(specs)
+        engine.report()
+        engine.to_file("templates/valid.txt")
+
         #Удаление загруженных файлов
         os.remove(os.path.join(app.config['UPLOAD_FOLDER'], file_ifc.filename))
         os.remove(os.path.join(app.config['UPLOAD_FOLDER'], file_ids.filename))
@@ -52,6 +60,7 @@ def validate_files():
 
         #Возвращение затраченного времени
         return jsonify(loading_time=loading_time, validation_time=validation_time)
+
     else:
         return 'Необходимо загрузить оба файла'
 
@@ -59,7 +68,8 @@ def validate_files():
 #Страница с результатами валидации
 @app.route('/valid')
 def valid():
-    return render_template_string(open('templates/valid.html', 'r', encoding='utf-8').read())
+    return render_template('valid.html')
+
 
 
 if __name__ == '__main__':
