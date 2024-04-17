@@ -233,6 +233,15 @@ class Json(Reporter):
             math.floor((total_applicable_pass / total_applicable) * 100) if total_applicable else "N/A"
         )
         percent_checks_pass = math.floor((total_checks_pass / total_checks) * 100) if total_checks else "N/A"
+
+        total_applicable_fail = total_applicable - total_applicable_pass,
+        total_checks_fail = total_checks - total_checks_pass,
+        null_elems = False if len(specification.applicable_entities) == 0 else True
+        #TODO ВОТ тут поработать
+        import re
+        pattern = r"(IFC\w+)"
+        ifc_classes_found = re.findall(pattern, ' '.join(applicability), flags=0)
+        ifc_classes = ', '.join(ifc_classes_found)
         return {
             "name": specification.name,
             "description": specification.description,
@@ -240,15 +249,17 @@ class Json(Reporter):
             "status": specification.status,
             "total_applicable": total_applicable,
             "total_applicable_pass": total_applicable_pass,
-            "total_applicable_fail": total_applicable - total_applicable_pass,
+            "total_applicable_fail": total_applicable_fail,
             "percent_applicable_pass": percent_applicable_pass,
             "total_checks": total_checks,
             "total_checks_pass": total_checks_pass,
-            "total_checks_fail": total_checks - total_checks_pass,
+            "total_checks_fail": total_checks_fail,
             "percent_checks_pass": percent_checks_pass,
             "required": specification.minOccurs != 0,
             "applicability": applicability,
             "requirements": requirements,
+            "null_elems": null_elems,
+            "ifc_classes": ifc_classes
         }
 
     def report_failed_entities(self, requirement):

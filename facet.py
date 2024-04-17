@@ -144,8 +144,8 @@ class Entity(Facet):
     def __init__(self, name="IFCWALL", predefinedType=None, instructions=None):
         self.parameters = ["name", "predefinedType", "@instructions"]
         self.applicability_templates = [
-            "Все данные {name} типа {predefinedType}", #All {name} data of type {predefinedType}
-            "Все данные {name}", #All {name} data
+            "Проверка классов {name} типа {predefinedType}", #All {name} data of type {predefinedType}
+            "Проверка классов {name}", #All {name} data
         ]
         self.requirement_templates = [
             "Должны быть {name} данные типа {predefinedType}", #Shall be {name} data of type {predefinedType}

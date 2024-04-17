@@ -31,6 +31,8 @@
             --light-green: #b6cca1;
             --red: #fb5a3e;
             --light-red: #fbb4a8;
+			--yellow: #FFFF00;
+			--p_yellow :#ffd37f
         }
         body { font-family: 'Arial', sans-serif; padding: 10px 40px; }
         section { padding: 15px; border-radius: 5px; border: 1px solid #eee; margin-bottom: 15px; }
@@ -39,6 +41,7 @@
         span.step-time { float: right; color: #555; font-size: 0.8em; font-style: italic; }
         span.item { padding: 5px; border-radius: 5px; margin-right: 5px; border: 1px solid #eee; }
         span.item.pass, span.item.fail { color: #FFF; font-weight: bold; border: 0px; }
+		span.item.null_elems {color: #FFFF00; font-weight: bold; border: 5px; }
         p.fail { background-color: #fb5a3e; padding: 5px; border-radius: 5px; color: #fff; }
         p.unspecified { background-color: #994f00; padding: 5px; border-radius: 5px; color: #fff; }
         p.skipped { background-color: #8b8d8f; padding: 5px; border-radius: 5px; color: #fff; }
@@ -59,6 +62,7 @@
         .percent { text-align: left; padding-top: 5px; padding-left: 5px; padding-bottom: 5px; color: white; border-radius: 5px; white-space: nowrap; }
         .pass { background-color: var(--green); }
         .fail { background-color: var(--red); }
+		.null_elems { background-color: var(--p_yellow); }
         table { width: 100%; border-bottom: 2px solid var(--red); border-spacing: 0; border-radius: 5px; margin-top: 10px; }
         th, td { padding: 5px; }
         thead>tr { background-color: var(--red); font-weight: bold; color: #fff; }
@@ -78,7 +82,7 @@
         <div class="{{#status}}pass{{/status}}{{^status}}fail{{/status}} percent" style="width: {{percent_checks_pass}}%;">{{percent_checks_pass}}%</div>
     </div>
     <p>
-        <span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Pass{{/status}}{{^status}}Fail{{/status}}</span>
+        <span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Удвл{{/status}}{{^status}}Неудв{{/status}}</span>
         <span class="item">
             Технических требований выполнено: <strong>{{total_specifications_pass}}</strong> / <strong>{{total_specifications}}</strong>
         </span>
@@ -99,12 +103,26 @@
         {{#instructions}}
         <p><em>{{instructions}}</em></p>
         {{/instructions}}
-
+		{{#null_elems}}
         <div class="container">
             <div class="{{#status}}pass{{/status}}{{^status}}fail{{/status}} percent" style="width: {{percent_checks_pass}}%;">{{percent_checks_pass}}%</div>
         </div>
+		{{/null_elems}}
+		{{^null_elems}}
+		<div class="container">
+			<div class="null_elems percent" style="width: {{percent_checks_pass}}%;">
+				<span style="color: black;">Элементы в модели не найдены</span>
+			</div>
+		</div>
+		{{/null_elems}}
         <p>
-            <span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Pass{{/status}}{{^status}}Fail{{/status}}</span>
+            
+		{{#null_elems}}
+			<span class="item {{#status}}pass{{/status}}{{^status}}fail{{/status}}">{{#status}}Удвл{{/status}}{{^status}}Неудв{{/status}}</span>
+		{{/null_elems}}
+		{{^null_elems}}
+			<span class="item null_elems percent" style="color: black;">Нет данных</span>
+		{{/null_elems}}
             <span class="item">
                 Проверок выполнено: <strong>{{total_checks_pass}}</strong> / <strong>{{total_checks}}</strong>
             </span>
@@ -113,13 +131,14 @@
             </span>
         </p>
         <p>
-            <strong>Проверялось</strong>
+            <strong>Проверялось {{ifc_classes}}</strong>
         </p>
         <ul>
             {{#applicability}}
             <li>{{.}}</li>
             {{/applicability}}
         </ul>
+		{{#null_elems}}
         <p>
             <strong>Требования</strong>
         </p>
@@ -134,11 +153,11 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Class</th>
-                                <th>PredefinedType</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Warning</th>
+                                <th>Класс</th>
+                                <th>Предопреденный тип</th>
+                                <th>Имя</th>
+                                <th>Описание</th>
+                                <th>Предупреждение</th>
                                 <th>GlobalId</th>
                                 <th>Tag</th>
                             </tr>
@@ -167,12 +186,14 @@
             </li>
             {{/requirements}}
         </ol>
+		{{/null_elems}}
+		{{^null_elems}}<strong>Элементов в модели нет. Проверка не прошла.</strong>{{/null_elems}}
     </section>
     {{/specifications}}
     <hr>
     <footer>
         <p>
-            Report by the <a href="https://blenderbim.org/">BlenderBIM Add-on</a> and <a href="http://ifcopenshell.org/">IfcOpenShell</a>.
+            Отчет сформирован с использованием библиотек <a href="http://ifcopenshell.org/">IfcOpenShell</a>.
         </p>
     </footer>
 </body>
