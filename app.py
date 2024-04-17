@@ -53,6 +53,10 @@ def validate_files():
         engine.report()
         engine.to_file("templates/valid.txt")
 
+        engine = reporter.Bcf(specs)
+        engine.report()
+        engine.to_file("templates/valid.bcf")
+
         #Удаление загруженных файлов
         os.remove(os.path.join(app.config['UPLOAD_FOLDER'], file_ifc.filename))
         os.remove(os.path.join(app.config['UPLOAD_FOLDER'], file_ids.filename))
